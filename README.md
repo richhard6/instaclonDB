@@ -56,6 +56,8 @@ API .
 
 -   GET - [/user/:userId] - check specific user profile with their picture gallery
 
+-   PUT - [/user/me] - update password.
+
 # Endpoints posts
 
 -   GET - [/posts] - all users' last posts
