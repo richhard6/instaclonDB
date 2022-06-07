@@ -5,7 +5,7 @@ const { PORT } = process.env;
 const express = require('express');
 
 const morgan = require('morgan');
-const { registerUser } = require('./controllers/users');
+const { registerUser, loginUser } = require('./controllers/users');
 
 const app = express();
 
@@ -13,7 +13,9 @@ app.use(morgan('dev'));
 
 app.use(express.json());
 
-app.use('/user/register', registerUser);
+app.post('/user/register', registerUser);
+
+app.post('/user/login', loginUser);
 
 app.use((err, req, res, next) => {
     console.error(err);

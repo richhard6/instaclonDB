@@ -19,6 +19,7 @@ async function main() {
         CREATE TABLE users (
             id INT PRIMARY KEY AUTO_INCREMENT,
             email VARCHAR(100) UNIQUE NOT NULL,
+            username VARCHAR(100) NOT NULL,
             password VARCHAR(100) NOT NULL,
             createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
             modifiedAt DATETIME ON UPDATE CURRENT_TIMESTAMP
