@@ -50,9 +50,9 @@ API .
 
 # Endpoint users
 
--   POST [/login] - log in app
+-   POST [/user/login] - log in app
 
--   POST [/register] - register in app
+-   POST [/user/register] - register in app
 
 -   GET - [/user/:userId] - check specific user profile with their picture gallery
 
@@ -68,4 +68,4 @@ API .
 
 -   POST - [/posts/:postId/like] - Like or remove like to a post **TOKEN NEEDED**
 
--   POST - [/table/:postId/comment] - Comment a post **TOKEN NEEDED**
+-   POST - [/posts/:postId/comment] - Comment a post **TOKEN NEEDED**
