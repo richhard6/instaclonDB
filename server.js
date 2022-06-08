@@ -3,9 +3,12 @@ require('dotenv').config();
 const { PORT } = process.env;
 
 const express = require('express');
+const fileUpload = require('express-fileupload');
 
 const morgan = require('morgan');
+const { newPost } = require('./controllers/posts');
 const { registerUser, loginUser } = require('./controllers/users');
+const authUser = require('./middlewares/authUser');
 
 const app = express();
 
@@ -13,9 +16,13 @@ app.use(morgan('dev'));
 
 app.use(express.json());
 
-app.post('/user/register', registerUser);
+app.use(fileUpload());
 
-app.post('/user/login', loginUser);
+app.post('/users/register', registerUser);
+
+app.post('/users/login', loginUser);
+
+app.post('/posts/newPost', authUser, newPost);
 
 app.use((err, req, res, next) => {
     console.error(err);

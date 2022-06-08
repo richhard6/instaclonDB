@@ -1,6 +1,6 @@
 # InstaClon
 
-API .
+API Made with node with express using dbsm mysql.
 
 # Features
 
@@ -50,13 +50,13 @@ API .
 
 # Endpoint users
 
--   POST [/user/login] - log in app
+-   POST [/users/login] - log in app
 
--   POST [/user/register] - register in app
+-   POST [/users/register] - register in app
 
--   GET - [/user/:userId] - check specific user profile with their picture gallery
+-   GET - [/users/:userId] - check specific user profile with their picture gallery
 
--   PUT - [/user/me] - update password.
+-   PUT - [/users/me] - update password or username **TOKEN NEEDED**
 
 # Endpoints posts
 
