@@ -28,11 +28,20 @@ const insertOrDeleteLike = async (userId, postId) => {
                     [like[0].id]
                 );
             } else {
-                return await connection.query(
+                const insertedLike = await connection.query(
                     `INSERT INTO likes (userId, postId) 
                      VALUES(?,?)`,
                     [userId, postId]
                 );
+
+                await connection.query(
+                    `
+                    UPDATE posts SET likes = (SELECT COUNT(*) FROM likes WHERE postId = ?) WHERE id = ?
+                `,
+                    [postId, postId]
+                );
+
+                return insertedLike;
             }
         } else {
             throw generateError('Cannot find the post you want to like', 404);

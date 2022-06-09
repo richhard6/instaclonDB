@@ -33,6 +33,7 @@ async function main() {
             FOREIGN KEY (userId) REFERENCES users(id),
             picture VARCHAR(100) NOT NULL,
             caption VARCHAR(200),
+            likes INT DEFAULT 0,
             createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
             modifiedAt DATETIME ON UPDATE CURRENT_TIMESTAMP
                 )
