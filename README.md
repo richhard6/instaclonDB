@@ -3,8 +3,8 @@
 API Made with node with express using dbsm mysql.
 
 To use this API you must first run the script
-`bash npm run initDB` followed by
-`bash npm run dev `
+`npm run initDB` followed by
+`npm run dev `
 
 # Features
 
