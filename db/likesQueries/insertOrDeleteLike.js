@@ -23,10 +23,18 @@ const insertOrDeleteLike = async (userId, postId) => {
             );
 
             if (like.length > 0) {
-                return await connection.query(
+                const deletedLike = await connection.query(
                     `DELETE FROM likes WHERE id = ?`,
                     [like[0].id]
                 );
+
+                await connection.query(
+                    `
+                    UPDATE posts SET likes = (SELECT COUNT(*) FROM likes WHERE postId = ?) WHERE id = ?
+                `,
+                    [postId, postId]
+                );
+                return deletedLike;
             } else {
                 const insertedLike = await connection.query(
                     `INSERT INTO likes (userId, postId) 
