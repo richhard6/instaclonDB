@@ -2,6 +2,10 @@
 
 API Made with node with express using dbsm mysql.
 
+To use this API you must first run the script
+`bash npm run initDB` followed by
+`bash npm run dev `
+
 # Features
 
 -   Two possible users until now, registered and non registered (anonymous)
