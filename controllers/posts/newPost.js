@@ -31,7 +31,7 @@ const newPost = async (req, res, next) => {
 
         await sharpImg.toFile(imgPath);
 
-        insertPost(id, pictureName, caption);
+        await insertPost(id, pictureName, caption);
 
         res.send({ status: 'ok', message: 'Post uploaded successfully' });
     } catch (err) {

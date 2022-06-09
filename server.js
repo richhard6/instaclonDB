@@ -6,6 +6,7 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 
 const morgan = require('morgan');
+const doOrRemoveLike = require('./controllers/likes/doOrRemoveLike');
 const { newPost } = require('./controllers/posts');
 const { registerUser, loginUser } = require('./controllers/users');
 const authUser = require('./middlewares/authUser');
@@ -23,6 +24,8 @@ app.post('/users/register', registerUser);
 app.post('/users/login', loginUser);
 
 app.post('/posts/newPost', authUser, newPost);
+
+app.post('/posts/:postId/like', authUser, doOrRemoveLike);
 
 app.use((err, req, res, next) => {
     console.error(err);
