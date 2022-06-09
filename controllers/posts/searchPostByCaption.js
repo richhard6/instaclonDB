@@ -1,4 +1,5 @@
 const selectPostByCaption = require('../../db/postsQueries/selectPostByCaption');
+const { generateError } = require('../../helpers');
 
 const searchPostByCaption = async (req, res, next) => {
     try {
@@ -6,7 +7,8 @@ const searchPostByCaption = async (req, res, next) => {
 
         const [posts] = await selectPostByCaption(query);
 
-        console.log(posts);
+        if (posts.length < 1)
+            throw generateError('There`s no posts matching your query', 404);
 
         res.send({ status: 'ok', data: posts });
     } catch (err) {
