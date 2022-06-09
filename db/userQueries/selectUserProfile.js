@@ -14,8 +14,8 @@ const selectUserProfile = async (userId) => {
             [userId]
         );
 
-        if (user.length < 1) {
-            throw generateError('user not found', 404);
+        if (!user) {
+            throw generateError('user doesn`t exists', 404);
         }
 
         const [posts] = await selectPostsByUID(userId);
