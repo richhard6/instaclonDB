@@ -2,7 +2,7 @@
 
 API Made with node with express using dbsm mysql.
 
-To use this API you must first create a database in mysql named as you want but make sure to add it in the .env and fill the other enviroment variables. Then run the script `npm run initDB` to install dependencies,
+To use this API you must first create a database in mysql named as you want but make sure to add it in the .env and fill the other enviroment variables. Then run the script `npm install` to install dependencies,
 `npm run initDB` to create the entities in the database followed by
 `npm run dev ` to start the server.
 
