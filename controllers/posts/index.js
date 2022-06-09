@@ -1,4 +1,4 @@
 const newPost = require('./newPost');
-const selectPostByCaption = require('./searchPostByCaption');
+const searchPostByCaption = require('./searchPostByCaption');
 
-module.exports = { newPost, selectPostByCaption };
+module.exports = { newPost, searchPostByCaption };

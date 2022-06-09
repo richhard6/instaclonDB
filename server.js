@@ -7,7 +7,7 @@ const fileUpload = require('express-fileupload');
 
 const morgan = require('morgan');
 const doOrRemoveLike = require('./controllers/likes/doOrRemoveLike');
-const { newPost, selectPostByCaption } = require('./controllers/posts');
+const { newPost, searchPostByCaption } = require('./controllers/posts');
 const {
     registerUser,
     loginUser,
@@ -31,7 +31,7 @@ app.get('/users/:userId', checkUserProfile);
 
 app.post('/posts/newPost', authUser, newPost);
 
-app.get('/posts', selectPostByCaption);
+app.get('/posts', searchPostByCaption);
 
 app.post('/posts/:postId/like', authUser, doOrRemoveLike);
 

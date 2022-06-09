@@ -50,11 +50,11 @@ API Made with node with express using dbsm mysql.
 
 # Endpoint users
 
--   POST [/users/login] - log in app
+-   POST [/users/login] - log in app _DONE_
 
--   POST [/users/register] - register in app
+-   POST [/users/register] - register in app _DONE_
 
--   GET - [/users/:userId] - check specific user profile with their picture gallery
+-   GET - [/users/:userId] - check specific user profile with their picture gallery _DONE_
 
 -   PUT - [/users/me] - update password or username **TOKEN NEEDED**
 
@@ -62,10 +62,10 @@ API Made with node with express using dbsm mysql.
 
 -   GET - [/posts] - all users' last posts
 
--   GET - [/posts?query=x] - search a post by given text.
+-   GET - [/posts?query=x] - search a post by given text. _DONE_
 
--   POST - [/posts/newPost] - Create a new post (picture required, caption optional). **TOKEN NEEDED**
+-   POST - [/posts/newPost] - Create a new post (picture required, caption optional). **TOKEN NEEDED** _DONE_
 
--   POST - [/posts/:postId/like] - Like or remove like to a post **TOKEN NEEDED**
+-   POST - [/posts/:postId/like] - Like or remove like to a post **TOKEN NEEDED** _DONE_
 
 -   POST - [/posts/:postId/comment] - Comment a post **TOKEN NEEDED**
