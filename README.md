@@ -64,7 +64,7 @@ To use this API you must first create a database in mysql named as you want but 
 
 # Endpoints posts
 
--   GET - [/posts] - all users' last posts
+-   GET - [/posts] - all users' last posts _DONE_
 
 -   GET - [/posts?query=x] - search a post by given text. _DONE_
 

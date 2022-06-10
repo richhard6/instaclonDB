@@ -13,6 +13,7 @@ const {
     loginUser,
     checkUserProfile,
 } = require('./controllers/users');
+const updateProfile = require('./controllers/users/updateProfile');
 const authUser = require('./middlewares/authUser');
 
 const app = express();
@@ -28,6 +29,8 @@ app.post('/users/register', registerUser);
 app.post('/users/login', loginUser);
 
 app.get('/users/:userId', checkUserProfile);
+
+app.put('/users/me', authUser, updateProfile);
 
 app.post('/posts/newPost', authUser, newPost);
 
