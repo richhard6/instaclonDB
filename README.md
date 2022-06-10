@@ -21,7 +21,7 @@ To use this API you must first create a database in mysql named as you want but 
 -   Registered users can
     -   Post a photo with or without caption (this photo must adapt to the established sizes given by the app)
     -   Like or remove the like to a post.
-    -   Update their profile (password or username) - It is needed to send in the body the user password for double security check to do this.
+    -   Update their profile (password or username) - It is needed to send in the body the user password for double security check to do this and the new username or new password.
     -   Comment a post.
 
 # Entities
