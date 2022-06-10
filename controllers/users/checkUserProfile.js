@@ -6,8 +6,6 @@ const checkUserProfile = async (req, res, next) => {
 
         const userProfile = await selectUserProfile(userId);
 
-        console.log(userProfile);
-
         res.send({ status: 'ok', data: userProfile });
     } catch (err) {
         next(err);

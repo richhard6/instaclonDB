@@ -7,14 +7,14 @@ const insertOrDeleteLike = async (userId, postId) => {
     try {
         connection = await getConnection();
 
-        const [post] = await connection.query(
+        const [[post]] = await connection.query(
             ` 
         SELECT id FROM posts WHERE id = ? 
         `,
             [postId]
         );
 
-        if (post.length > 0) {
+        if (post) {
             const [like] = await connection.query(
                 ` 
             SELECT id FROM likes WHERE userId = ? AND postId = ? 

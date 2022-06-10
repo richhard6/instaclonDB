@@ -6,14 +6,16 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 
 const morgan = require('morgan');
+const addComment = require('./controllers/comments/addComment');
 const doOrRemoveLike = require('./controllers/likes/doOrRemoveLike');
 const { newPost, searchPostByCaption } = require('./controllers/posts');
 const {
     registerUser,
     loginUser,
     checkUserProfile,
+    updateProfile,
 } = require('./controllers/users');
-const updateProfile = require('./controllers/users/updateProfile');
+
 const authUser = require('./middlewares/authUser');
 
 const app = express();
@@ -37,6 +39,8 @@ app.post('/posts/newPost', authUser, newPost);
 app.get('/posts', searchPostByCaption);
 
 app.post('/posts/:postId/like', authUser, doOrRemoveLike);
+
+app.post('/posts/:postId/comment', authUser, addComment);
 
 app.use((err, req, res, next) => {
     console.error(err);

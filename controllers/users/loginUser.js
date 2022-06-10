@@ -20,8 +20,6 @@ const loginUser = async (req, res, next) => {
 
         const payload = { id: user.id, username: user.username };
 
-        console.log(payload);
-
         const token = jwt.sign(payload, SECRET, { expiresIn: '30d' });
 
         res.send({ status: 'ok', data: { token } });

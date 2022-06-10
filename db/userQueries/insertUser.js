@@ -19,8 +19,6 @@ const insertUser = async (email, username, password) => {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        console.log(username);
-
         const [newUser] = await connection.query(
             `
         INSERT INTO users (email, username, password) VALUES(?,?,?)
