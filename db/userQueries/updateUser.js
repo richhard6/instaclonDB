@@ -19,6 +19,11 @@ const updateUser = async (id, username, password, newPassword) => {
                 403
             );
 
+        if (!username || !password)
+            throw generateError(
+                'You must add a new password or new username to update your profile'
+            );
+
         if (username && newPassword) {
             const hashedPassword = await bcrypt.hash(newPassword, 10);
 
