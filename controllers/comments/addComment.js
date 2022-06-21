@@ -10,7 +10,10 @@ const addComment = async (req, res, next) => {
         const { comment } = req.body;
 
         if (!comment || comment.trim().length === 0)
-            throw generateError('You must add something to make a comment');
+            throw generateError(
+                'You must add something to make a comment',
+                400
+            );
 
         await insertComment(id, postId, comment);
 

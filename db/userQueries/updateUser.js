@@ -21,7 +21,8 @@ const updateUser = async (id, username, password, newPassword) => {
 
         if (!username || !password)
             throw generateError(
-                'You must add a new password or new username to update your profile'
+                'You must add a new password or new username to update your profile',
+                400
             );
 
         if (username && newPassword) {
