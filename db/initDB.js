@@ -43,7 +43,7 @@ async function main() {
             CREATE TABLE likes (
                 id INT PRIMARY KEY AUTO_INCREMENT,
                 postId INT NOT NULL,
-                FOREIGN KEY (postId) REFERENCES posts(id),
+                FOREIGN KEY (postId) REFERENCES posts(id) ON DELETE CASCADE,
                 userId INT NOT NULL,
                 FOREIGN KEY (userId) REFERENCES users(id),
                 createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -55,7 +55,7 @@ async function main() {
             CREATE TABLE comments (
                 id INT PRIMARY KEY AUTO_INCREMENT,
                 postId INT NOT NULL,
-                FOREIGN KEY (postId) REFERENCES posts(id),
+                FOREIGN KEY (postId) REFERENCES posts(id) ON DELETE CASCADE,
                 userId INT NOT NULL,
                 FOREIGN KEY (userId) REFERENCES users(id),
                 comment VARCHAR(200) NOT NULL,

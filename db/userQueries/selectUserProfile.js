@@ -1,4 +1,5 @@
-const { generateError } = require('../../helpers');
+const { generateError, addCommentsToPost } = require('../../helpers');
+const selectCommentsByPostId = require('../commentsQueries/selectCommentsByPostId');
 const getConnection = require('../getConnection');
 const selectPostsByUID = require('../postsQueries/selectPostsByUID');
 
@@ -19,6 +20,8 @@ const selectUserProfile = async (userId) => {
         }
 
         const [posts] = await selectPostsByUID(userId);
+
+        await addCommentsToPost(posts);
 
         return {
             user,

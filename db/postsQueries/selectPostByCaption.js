@@ -9,7 +9,7 @@ const selectPostByCaption = async (text) => {
         if (text) {
             return await connection.query(
                 `
-        SELECT U.username, P.picture, P.caption, P.likes 
+        SELECT U.username, P.picture, P.caption, P.likes, P.id
         FROM posts P
         LEFT JOIN users U
         ON P.userId = U.id
@@ -22,7 +22,7 @@ const selectPostByCaption = async (text) => {
 
         return await connection.query(
             `
-        SELECT U.username, P.picture, P.caption, P.likes 
+        SELECT U.username, P.picture, P.caption, P.createdAt, P.likes, P.id
         FROM posts P
         LEFT JOIN users U
         ON P.userId = U.id

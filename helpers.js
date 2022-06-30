@@ -1,4 +1,5 @@
 const fs = require('fs/promises');
+const selectCommentsByPostId = require('./db/commentsQueries/selectCommentsByPostId');
 
 const generateError = (message, status) => {
     const error = new Error(message);
@@ -14,4 +15,21 @@ const createDirIfNotExists = async (path) => {
     }
 };
 
-module.exports = { generateError, createDirIfNotExists };
+const addCommentsToPost = async (posts) => {
+    const postId = posts.map((post) => post.id);
+
+    for (let i = 0; i < postId.length; i++) {
+        const comments = await selectCommentsByPostId(postId[i]);
+        if (comments.length > 0) {
+            for (let j = 0; j < comments.length; j++) {
+                for (let k = 0; k < posts.length; k++) {
+                    if (comments[j].postId === posts[k].id) {
+                        posts[k].comments = [...comments];
+                    }
+                }
+            }
+        }
+    }
+};
+
+module.exports = { generateError, createDirIfNotExists, addCommentsToPost };
