@@ -1,5 +1,4 @@
 const { generateError, addCommentsToPost } = require('../../helpers');
-const selectCommentsByPostId = require('../commentsQueries/selectCommentsByPostId');
 const getConnection = require('../getConnection');
 const selectPostsByUID = require('../postsQueries/selectPostsByUID');
 
