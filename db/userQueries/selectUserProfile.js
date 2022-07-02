@@ -2,7 +2,7 @@ const { generateError, addCommentsToPost } = require('../../helpers');
 const getConnection = require('../getConnection');
 const selectPostsByUID = require('../postsQueries/selectPostsByUID');
 
-const selectUserProfile = async (userId) => {
+const selectUserProfile = async (userId, ownUserId) => {
     let connection;
     try {
         connection = await getConnection();
@@ -18,7 +18,7 @@ const selectUserProfile = async (userId) => {
             throw generateError('user doesn`t exists', 404);
         }
 
-        const [posts] = await selectPostsByUID(userId);
+        const [posts] = await selectPostsByUID(userId, ownUserId);
 
         await addCommentsToPost(posts);
 

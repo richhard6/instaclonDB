@@ -17,7 +17,7 @@ const addComment = async (req, res, next) => {
 
         if (comment.length > 200)
             throw generateError(
-                'The comment cannot be more than 200 characters',
+                'The comment cannot exceed the 200 characters',
                 400
             );
 

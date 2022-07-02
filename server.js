@@ -42,7 +42,7 @@ app.get('/users/me/profile', authUser, getOwnUser);
 
 app.put('/users/me', authUser, updateProfile);
 
-app.get('/users/:userId', checkUserProfile);
+app.get('/users/:userId', authUserOptional, checkUserProfile);
 
 app.post('/posts/newPost', authUser, newPost);
 
