@@ -9,7 +9,7 @@ const selectPostByCaption = async (userId, text) => {
         if (text) {
             return await connection.query(
                 `
-            SELECT U.username, P.picture, P.caption, P.likes, P.createdAt, P.id, BIT_OR(L.userId = ?) AS likedByMe 
+            SELECT U.username, P.picture, P.caption, P.likes, P.createdAt, P.userId, P.id, BIT_OR(L.userId = ?) AS likedByMe 
             FROM posts P
             LEFT JOIN likes L
             ON P.id = L.postId
@@ -25,7 +25,7 @@ const selectPostByCaption = async (userId, text) => {
 
         return await connection.query(
             `
-            SELECT U.username, P.picture, P.caption, P.likes, P.createdAt, P.id, BIT_OR(L.userId = ?) AS likedByMe 
+            SELECT U.username, P.picture, P.caption, P.likes, P.createdAt, P.userId, P.id, BIT_OR(L.userId = ?) AS likedByMe 
             FROM posts P
             LEFT JOIN likes L
             ON P.id = L.postId
