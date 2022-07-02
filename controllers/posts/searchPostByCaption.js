@@ -6,7 +6,9 @@ const searchPostByCaption = async (req, res, next) => {
     try {
         const { query } = req.query;
 
-        const [posts] = await selectPostByCaption(query);
+        const id = req.user?.id;
+
+        const [posts] = await selectPostByCaption(id, query);
 
         await addCommentsToPost(posts);
 

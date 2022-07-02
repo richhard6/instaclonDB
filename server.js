@@ -20,6 +20,7 @@ const {
 } = require('./controllers/users');
 
 const authUser = require('./middlewares/authUser');
+const authUserOptional = require('./middlewares/authUserOptional');
 
 const app = express();
 
@@ -45,7 +46,7 @@ app.get('/users/:userId', checkUserProfile);
 
 app.post('/posts/newPost', authUser, newPost);
 
-app.get('/posts', searchPostByCaption);
+app.get('/posts', authUserOptional, searchPostByCaption);
 
 app.post('/posts/:postId/like', authUser, doOrRemoveLike);
 
