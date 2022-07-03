@@ -8,7 +8,7 @@ const selectUserById = async (userId) => {
 
         const user = await connection.query(
             `
-        SELECT username, id FROM users WHERE id = ? 
+        SELECT username, password, id FROM users WHERE id = ? 
         `,
             [userId]
         );
