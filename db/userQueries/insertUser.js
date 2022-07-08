@@ -15,7 +15,8 @@ const insertUser = async (email, username, password) => {
             [email]
         );
 
-        if (user.length > 0) throw generateError('This email is being used...');
+        if (user.length > 0)
+            throw generateError('This email is being used...', 400);
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
