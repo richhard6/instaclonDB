@@ -13,7 +13,7 @@ const searchPostByCaption = async (req, res, next) => {
         await addCommentsToPost(posts);
 
         if (posts.length < 1)
-            throw generateError('There`s no posts matching your query', 404);
+            throw generateError(`There's no posts matching your query`, 404);
 
         res.send({ status: 'ok', data: posts });
     } catch (err) {
