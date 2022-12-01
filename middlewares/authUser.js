@@ -5,12 +5,11 @@ const { SECRET } = process.env;
 
 const authUser = (req, res, next) => {
     try {
+        let token;
         const { authorization } = req.headers;
 
         if (!authorization)
             throw generateError('Authorization header needed', 401);
-
-        let token;
 
         try {
             token = jwt.verify(authorization, SECRET);

@@ -11,7 +11,7 @@ const addComment = async (req, res, next) => {
 
         if (!comment || comment.trim().length === 0)
             throw generateError(
-                'You must add something to make a comment',
+                'You must add some characters to make a comment',
                 400
             );
 
