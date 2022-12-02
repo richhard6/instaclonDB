@@ -20,7 +20,7 @@ const {
 } = require('./controllers/users');
 
 const authUser = require('./middlewares/authUser');
-const authUserOptional = require('./middlewares/authUserOptional');
+const authUserOptional = require('./middlewares/authUser');
 
 const app = express();
 
@@ -42,11 +42,11 @@ app.get('/users/me/profile', authUser, getOwnUser);
 
 app.put('/users/me', authUser, updateProfile);
 
-app.get('/users/:userId', authUserOptional, checkUserProfile);
+app.get('/users/:userId', authUser, checkUserProfile);
 
 app.post('/posts/newPost', authUser, newPost);
 
-app.get('/posts', authUserOptional, searchPostByCaption);
+app.get('/posts', authUser, searchPostByCaption);
 
 app.post('/posts/:postId/like', authUser, doOrRemoveLike);
 

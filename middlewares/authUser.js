@@ -1,23 +1,21 @@
 const jwt = require('jsonwebtoken');
+
 const { generateError } = require('../helpers');
 
-const { SECRET } = process.env;
-
-const authUser = (req, res, next) => {
+//refactorizar esta cagada.
+const authUserOptional = (req, res, next) => {
     try {
-        let token;
         const { authorization } = req.headers;
 
-        if (!authorization)
-            throw generateError('Authorization header needed', 401);
-
-        try {
-            token = jwt.verify(authorization, SECRET);
-        } catch (err) {
-            throw generateError('Wrong token', 401);
+        if (authorization) {
+            let token;
+            try {
+                token = jwt.verify(authorization, process.env.SECRET);
+            } catch {
+                throw generateError('Token incorrecto', 401);
+            }
+            req.user = token;
         }
-
-        req.user = token;
 
         next();
     } catch (err) {
@@ -25,4 +23,4 @@ const authUser = (req, res, next) => {
     }
 };
 
-module.exports = authUser;
+module.exports = authUserOptional;
