@@ -20,9 +20,9 @@ const newPost = async (req, res, next) => {
         if (image.mimetype !== 'image/png' && image.mimetype !== 'image/jpeg')
             throw generateError('Wrong image type', 400);
 
-        await createDirIfNotExists(uploadDir);
-
         sharpImg.resize(500);
+
+        await createDirIfNotExists(uploadDir);
 
         await sharpImg.toFile(imgPath);
 

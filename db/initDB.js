@@ -1,5 +1,7 @@
 const getConnection = require('./getConnection');
 
+//refaktorizar esto
+
 async function main() {
     let connection;
 
