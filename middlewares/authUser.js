@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const { generateError } = require('../helpers');
 
 //refactorizar esta cagada.
-const authUserOptional = (req, res, next) => {
+const authUser = (req, res, next) => {
     try {
         const { authorization } = req.headers;
 
@@ -23,4 +23,4 @@ const authUserOptional = (req, res, next) => {
     }
 };
 
-module.exports = authUserOptional;
+module.exports = authUser;
