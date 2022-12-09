@@ -14,7 +14,7 @@ const selectUserByEmail = async (email) => {
             [email]
         );
 
-        if (user.length < 1) throw generateError('user not found', 404);
+        if (user.length < 1) throw generateError('User not found', 404);
 
         return user[0];
     } finally {

@@ -2,7 +2,8 @@ const jwt = require('jsonwebtoken');
 
 const { generateError } = require('../helpers');
 
-//refactorizar esta cagada.
+//CUANDO NO TIEN ES TOKEN SE VA RTODO A LA MIERDA!
+
 const authUser = (req, res, next) => {
     try {
         const { authorization } = req.headers;

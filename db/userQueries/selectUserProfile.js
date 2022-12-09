@@ -15,7 +15,7 @@ const selectUserProfile = async (userId, ownUserId) => {
         );
 
         if (!user) {
-            throw generateError('user doesn`t exists', 404);
+            throw generateError('User doesn`t exists', 404);
         }
 
         const [posts] = await selectPostsByUID(userId, ownUserId);

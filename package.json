@@ -17,6 +17,9 @@
         "prettier": "^2.6.2"
     },
     "dependencies": {
+        "@emotion/react": "^11.10.5",
+        "@emotion/styled": "^11.10.5",
+        "@mui/material": "^5.10.17",
         "bcrypt": "^5.0.1",
         "cors": "^2.8.5",
         "dotenv": "^16.0.1",
