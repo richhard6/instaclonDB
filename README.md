@@ -73,3 +73,5 @@ To use this API you must first create a database in mysql named as you want but 
 -   POST - [/posts/:postId/like] - Like or remove like to a post **TOKEN NEEDED**
 
 -   POST - [/posts/:postId/comment] - Comment a post **TOKEN NEEDED**
+
+-   DELETE - [/posts/:postId] - Delete a post **TOKEN NEEDED**
