@@ -1,4 +1,3 @@
-const selectCommentsByPostId = require('../../db/commentsQueries/selectCommentsByPostId');
 const selectPostByCaption = require('../../db/postsQueries/selectPostByCaption');
 const { generateError, addCommentsToPost } = require('../../helpers');
 

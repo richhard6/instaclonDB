@@ -1,5 +1,6 @@
 const fs = require('fs/promises');
 const selectCommentsByPostId = require('./db/commentsQueries/selectCommentsByPostId');
+const path = require('path');
 
 const generateError = (message, status) => {
     const error = new Error(message);
@@ -32,4 +33,21 @@ const addCommentsToPost = async (posts) => {
     }
 };
 
-module.exports = { generateError, createDirIfNotExists, addCommentsToPost };
+const deletePhoto = async (photoName) => {
+    try {
+        // Creamos la ruta absoluta a la foto.
+        const photoPath = path.join(__dirname, 'uploads', photoName);
+
+        // Eliminamos la foto del disco.
+        await fs.unlink(photoPath);
+    } catch {
+        throw new Error('Error al eliminar la imagen del servidor');
+    }
+};
+
+module.exports = {
+    generateError,
+    createDirIfNotExists,
+    addCommentsToPost,
+    deletePhoto,
+};

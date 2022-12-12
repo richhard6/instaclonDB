@@ -21,6 +21,8 @@ const {
 
 const authUser = require('./middlewares/authUser');
 const authUserOptional = require('./middlewares/authUser');
+const deletePost = require('./controllers/posts/deletePost');
+const postExists = require('./middlewares/postExists');
 
 const app = express();
 
@@ -51,6 +53,8 @@ app.get('/posts', authUser, searchPostByCaption);
 app.post('/posts/:postId/like', authUser, doOrRemoveLike);
 
 app.post('/posts/:postId/comment', authUser, addComment);
+
+app.delete('/posts/:postId', authUser, postExists, deletePost);
 
 app.use((err, req, res, next) => {
     console.error(err);
