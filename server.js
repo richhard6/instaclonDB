@@ -4,9 +4,7 @@ const { PORT } = process.env;
 
 const express = require('express');
 const fileUpload = require('express-fileupload');
-
 const cors = require('cors');
-
 const morgan = require('morgan');
 const addComment = require('./controllers/comments/addComment');
 const doOrRemoveLike = require('./controllers/likes/doOrRemoveLike');

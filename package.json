@@ -8,7 +8,7 @@
         "dev": "nodemon server.js"
     },
     "keywords": [],
-    "author": "",
+    "author": "Richard Perdomo",
     "license": "ISC",
     "devDependencies": {
         "eslint": "^8.17.0",
