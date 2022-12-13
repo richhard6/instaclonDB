@@ -42,7 +42,7 @@ app.post('/users/login', loginUser);
 
 app.get('/users/me/profile', authUser, getOwnUser);
 
-app.get('hola', () => {
+app.get('/hola', () => {
     console.log('chao?');
 });
 
