@@ -42,6 +42,10 @@ app.post('/users/login', loginUser);
 
 app.get('/users/me/profile', authUser, getOwnUser);
 
+app.get('hola', () => {
+    console.log('chao?');
+});
+
 app.put('/users/me', authUser, updateProfile);
 
 app.get('/users/:userId', authUser, checkUserProfile);
