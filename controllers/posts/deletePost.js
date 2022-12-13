@@ -9,7 +9,6 @@ const deletePost = async (req, res, next) => {
         const post = await selectPostById(postId);
 
         const { user } = req;
-        //SE ESRTA BORRANDO KLA IMAGEN PERIO NO EL POST ª!! ! !" ASDFJKLAFSDHÑIOUADFSLNBJKZ"
 
         if (user.id !== post.userId) {
             throw generateError('You are not the owner of this post ', 401);
@@ -19,7 +18,7 @@ const deletePost = async (req, res, next) => {
             await deletePhoto(post.picture);
         }
 
-        await deletePostDb(post.id); // se borra pero se queda ahi pensativo
+        await deletePostDb(post.id);
 
         res.send({
             status: 'ok',
