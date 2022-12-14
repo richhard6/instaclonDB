@@ -35,10 +35,8 @@ const addCommentsToPost = async (posts) => {
 
 const deletePhoto = async (photoName) => {
     try {
-        // Creamos la ruta absoluta a la foto.
         const photoPath = path.join(__dirname, 'uploads', photoName);
 
-        // Eliminamos la foto del disco.
         await fs.unlink(photoPath);
     } catch {
         throw new Error('Error al eliminar la imagen del servidor');
