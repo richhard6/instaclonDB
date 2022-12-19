@@ -68,10 +68,10 @@ app.use((err, req, res, next) => {
     });
 });
 
-app.use((err, req, res) => {
+app.use((req, res) => {
     res.status(404).send({
         status: 'error',
-        message: err.message,
+        message: res.message,
     });
 });
 
