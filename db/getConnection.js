@@ -21,9 +21,7 @@ const getConnection = async () => {
 
         return await pool.getConnection();
     } catch (error) {
-        console.log(error);
-        console.log(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB);
-        throw new Error('error connecting to mysql or db not found');
+        throw new Error(error);
     }
 };
 
