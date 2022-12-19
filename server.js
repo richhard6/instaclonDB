@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const { parse, stringify, toJSON, fromJSON } = require('flatted');
+let bodyParser = require('body-parser');
 
 const { PORT } = process.env;
 
@@ -29,6 +30,12 @@ const app = express();
 app.use(cors());
 
 app.use(morgan('dev'));
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 app.use(express.json());
 
