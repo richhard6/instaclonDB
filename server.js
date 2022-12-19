@@ -1,7 +1,5 @@
 require('dotenv').config();
 
-let bodyParser = require('body-parser');
-
 const { PORT } = process.env;
 
 const express = require('express');
@@ -39,6 +37,10 @@ app.use(express.json());
 app.use(fileUpload());
 
 app.use(express.static('uploads'));
+
+app.get('/hola', (req, res) => {
+    res.send({ status: 'ok', message: 'влуат' });
+});
 
 app.post('users/register', registerUser);
 
