@@ -18,7 +18,6 @@ const postExists = async (req, res, next) => {
             throw generateError('Post can`t be found', 404);
         }
 
-        // Saltamos al siguiente controlador.
         next();
     } catch (err) {
         next(err);
