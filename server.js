@@ -69,6 +69,7 @@ app.use((err, req, res, next) => {
 });
 
 app.use((req, res) => {
+    console.log(res);
     res.status(404).send({
         status: 'error',
         message: res.message,
