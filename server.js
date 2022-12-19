@@ -50,11 +50,11 @@ app.get('/users/me/profile', authUser, getOwnUser);
 
 app.put('/users/me', authUser, updateProfile);
 
-/* app.get('/users/:userId', authUser, checkUserProfile);
- */
-app.get('/users/:userId', (req, res) => {
+app.get('/users/:userId', authUser, checkUserProfile);
+
+/* app.get('/users/:userId', (req, res) => {
     res.send({ status: 'ok', message: 'влуат' });
-});
+}); */
 
 app.post('/posts/newPost', authUser, newPost);
 
