@@ -34,29 +34,25 @@ app.use(fileUpload());
 
 app.use(express.static('uploads'));
 
-app.post('/users/register', registerUser);
+app.post('users/register', registerUser);
 
-app.post('/users/login', loginUser);
+app.post('users/login', loginUser);
 
-app.get('/users/me/profile', authUser, getOwnUser);
+app.get('users/me/profile', authUser, getOwnUser);
 
-app.get('/hola', (req, res) => {
-    res.send({ status: 'ok', message: 'влуат' });
-});
+app.put('users/me', authUser, updateProfile);
 
-app.put('/users/me', authUser, updateProfile);
+app.get('users/:userId', authUser, checkUserProfile);
 
-app.get('/users/:userId', authUser, checkUserProfile);
+app.post('posts/newPost', authUser, newPost);
 
-app.post('/posts/newPost', authUser, newPost);
+app.get('posts', authUser, searchPostByCaption);
 
-app.get('/posts', authUser, searchPostByCaption);
+app.post('posts/:postId/like', authUser, doOrRemoveLike);
 
-app.post('/posts/:postId/like', authUser, doOrRemoveLike);
+app.post('posts/:postId/comment', authUser, addComment);
 
-app.post('/posts/:postId/comment', authUser, addComment);
-
-app.delete('/posts/:postId', authUser, postExists, deletePost);
+app.delete('posts/:postId', authUser, postExists, deletePost);
 
 app.use((err, req, res, next) => {
     console.error(err);

@@ -39,7 +39,7 @@ const deletePhoto = async (photoName) => {
 
         await fs.unlink(photoPath);
     } catch {
-        throw new Error('Error al eliminar la imagen del servidor');
+        throw new Error('Error uploading image to the server');
     }
 };
 
