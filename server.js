@@ -61,17 +61,17 @@ app.post('posts/:postId/comment', authUser, addComment);
 app.delete('posts/:postId', authUser, postExists, deletePost);
 
 app.use((err, req, res, next) => {
-    console.error(err);
+    console.error(res);
     res.status(err.statusCode || 500).send({
         status: 'error',
-        message: res,
+        message: err.message,
     });
 });
 
-app.use((req, res) => {
+app.use((err, req, res) => {
     res.status(404).send({
         status: 'error',
-        message: res,
+        message: err.message,
     });
 });
 
