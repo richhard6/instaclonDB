@@ -82,6 +82,6 @@ app.use((req, res) => {
     });
 });
 
-app.listen(PORT | 3000, () => {
+app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT}`);
 });
