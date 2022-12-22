@@ -67,7 +67,7 @@ app.post('/posts/:postId/comment', authUser, addComment);
 app.delete('/posts/:postId', authUser, postExists, deletePost);
 
 app.use((err, req, res, next) => {
-    console.error(res);
+    console.error(err);
     res.status(err.statusCode || 500).send({
         status: 'error',
         message: err.message,
