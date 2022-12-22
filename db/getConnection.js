@@ -1,4 +1,4 @@
-require('dotenv').config();
+//require('dotenv').config();
 
 const mysql = require('mysql2/promise');
 
@@ -10,7 +10,7 @@ const getConnection = async () => {
     try {
         if (!pool) {
             pool = mysql.createPool({
-                connectionLimit: 100,
+                connectionLimit: 10,
                 host: MYSQL_HOST,
                 user: MYSQL_USER,
                 password: MYSQL_PASS,
