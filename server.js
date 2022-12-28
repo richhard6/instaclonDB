@@ -38,6 +38,10 @@ app.use(fileUpload());
 
 app.use(express.static('uploads'));
 
+app.use(function (req, res, next) {
+    res.set('Access-Control-Allow-Origin', '*');
+});
+
 app.get('/hola', (req, res) => {
     res.send({ status: 'ok', message: 'влуат' });
 });
@@ -65,15 +69,6 @@ app.post('/posts/:postId/like', authUser, doOrRemoveLike);
 app.post('/posts/:postId/comment', authUser, addComment);
 
 app.delete('/posts/:postId', authUser, postExists, deletePost);
-
-app.use(function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header(
-        'Access-Control-Allow-Headers',
-        'Origin, X-Requested-With, Content-Type, Accept'
-    );
-    next();
-});
 
 app.use((err, req, res, next) => {
     console.error(err);
