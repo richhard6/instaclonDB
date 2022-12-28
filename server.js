@@ -66,6 +66,15 @@ app.post('/posts/:postId/comment', authUser, addComment);
 
 app.delete('/posts/:postId', authUser, postExists, deletePost);
 
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept'
+    );
+    next();
+});
+
 app.use((err, req, res, next) => {
     console.error(err);
     res.status(err.statusCode || 500).send({
