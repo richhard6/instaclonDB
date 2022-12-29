@@ -38,8 +38,8 @@ app.use(fileUpload());
 
 app.use(express.static('uploads'));
 
-app.get('/hola', (req, res) => {
-    res.send({ status: 'ok', message: 'влуат' });
+app.post('/', (req, res) => {
+    res.send({ status: 'ok', message: 'why to / влуат' });
 });
 
 app.post('/users/register', registerUser);
