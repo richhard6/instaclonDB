@@ -40,6 +40,7 @@ app.use(express.static('uploads'));
 
 app.use(function (req, res, next) {
     res.set('Access-Control-Allow-Origin', '*');
+    res.send({ status: 'ok', message: 'влуат' });
 });
 
 app.get('/hola', (req, res) => {
